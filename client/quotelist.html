@@ -18,7 +18,7 @@
 <template name="quoteLine">
 	<tr>
 		<td class="text-center">
-			<button class="btn btn-sm btn-info like">{{likes}} Likes</button>
+			<button class="btn btn-sm btn-success like">{{likes}} Likes</button>
 		</td>
 		<td>
 			<span class="author">{{author}}</span><span class="quote">{{quote}}</span>
@@ -30,7 +30,7 @@
 
 		<td>
 			{{#if isOwner}}
-			<button class="btn btn-small btn-warning delete">
+			<button class="btn btn-small btn-link delete">
 				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 			</button>
 			{{/if}}

@@ -10,16 +10,15 @@
 	  'click button#saveQuote': function(event){
 		  // read the author and quote text from the browser window
 		  var newQuoteText = $("#newquotetext").val();	
-		  var newAuthor = $("#newauthor").val();
+		 
 		  
-		  // and erase the fields so the user can add another quote later
-		  $("#newauthor").val("");			
-		  $("#newquotetext").val("");						
+		  // and erase the fields so the user can add another quote later	
+		  $("#newquotetext").val(" ");	
+		  Meteor.user().emails[0].address				
 		  
 		  // create a new quote object and upload it to the server!
 		  var quote = 
-		  	{quote:newQuoteText, 
-		  		author:newAuthor, 
+		  	{quote:newQuoteText,  
 		  		likes:0, 
 		  		createdAt: new Date(),
 		  		createdBy: Meteor.user().emails[0].address,
