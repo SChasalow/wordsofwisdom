@@ -1,22 +1,36 @@
 <template name="newquote">
-	<div class="row" id="newquote">
-		<div class="col-md-8">
-			<h2>Add a new quote</h2>
-			<table class="table table-bordered">
-				<tr>
-					<td><input type="text" class="quote" id="newauthor" placeholder="author" name="author"/></td>
-				</tr>
-				<tr>
-					<td> <input type="text" class="quote" id="newquotetext" placeholder="quote" name="quote"/></td>
-				</tr>
-				<tr>
-					<td> 
-						<input type="text" class="quote" id="subject" placeholder="subject" name="quote">
-					</td>
-				</tr>
-			</table>
-		<button id="saveQuote"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>Send</button>
-	</div>
-	</div>
+
+
+
+    <div class="row" id="newquote">
+        <div class="col-md-8">
+            <h2>Add a new quote</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        <input type="text" class="quote" id="newauthor" placeholder="author" name="author" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="quote" id="newquotetext" placeholder="quote" name="quote" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" class="quote" id="subject" placeholder="subject" name="quote">
+                        <select name="cars">
+                            <option value="jokes">Jokes</option>
+                            <option value="wisdom">Wisdom</option>
+                            <option value="phrases">Phrases</option>
+                            <option value="misc.">Misc.</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button id="saveQuote"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>upload</button>
+        </div>
+    </div>
+
 
 </template>
