@@ -1,0 +1,29 @@
+/* CSS declarations go here */
+
+div#footer {
+	margin:80px 0px 20px 0px;
+}
+
+div#about {
+	margin:100px 0px;
+	padding:10px 50px;
+}
+
+div#header {
+	margin:100px 0px;
+	padding:10px 50px;
+}
+
+div#promise{
+	margin:100px 0px;
+	padding:10px 50px;
+
+}
+
+div#newquote{
+	margin:100px 0px;
+	padding: 10px 50px;
+	
+
+
+}

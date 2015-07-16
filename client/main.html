@@ -1,0 +1,28 @@
+<head>
+  <title>Words of Wisdom</title>
+</head>
+
+<body>
+	<div class = "containter">
+		{{> header}}
+		{{#if currentUser}}
+			{{> newquote}}
+		{{else}}
+			<p>You need to log in to send messages</p>
+		{{/if}}
+
+		{{> loginButtons}}
+	
+		{{> quotelist}}
+
+		{{> brandPromise}}
+		
+		{{> footer}}
+
+		
+	</div>
+
+</body>
+
+
+

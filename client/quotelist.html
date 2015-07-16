@@ -1,0 +1,39 @@
+<template name="quotelist">
+	<h2>The most recent quotes are </h2>
+	<div>
+		<table class="table table-striped" id="quotelist">
+			<tbody>
+			{{#each quotes}}
+				{{> quoteLine}}
+			{{/each}}
+			</tbody>
+		</table>
+		<button id="showMore">Show More Messages</button>
+		<button id="showLess">Show Fewer Messages</button>
+	</div>
+</template>
+
+
+
+<template name="quoteLine">
+	<tr>
+		<td class="text-center">
+			<button class="btn btn-sm btn-info like">{{likes}} Likes</button>
+		</td>
+		<td>
+			<span class="author">{{author}}</span><span class="quote">{{quote}}</span>
+		</td>	
+
+		<td> {{createdBy}} at {{createdAt}}</td>
+
+		<!-- THIS IS NEW--> <td>{{likers}}</td>
+
+		<td>
+			{{#if isOwner}}
+			<button class="btn btn-small btn-warning delete">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+			{{/if}}
+		</td>
+	</tr>
+</template>

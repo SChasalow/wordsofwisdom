@@ -1,0 +1,37 @@
+<template name="about">
+	<div id="about" class="bg-info">
+		<h2>About the Quotes app</h2>
+		<p>
+			This app stores "quotes" where a quote consists of three pieces of user supplied information
+			<ul>
+				<li>the <code>author</code></li>
+				<li>the <code>quote</code></li>
+				<li>the number of <code>likes</code></li>
+			</ul>
+			and two pieces of information supplied by meteor
+			<ul>
+				<li> who is was <code>createdBy</code></li>
+				<li> the time it was <code>createdAt</code></li>
+			</ul>
+			There are four things you can do with this collection of information about user quotes
+			<ul>
+				<li>Create -- every user can create a new quote by supplying an author and quote</li>
+				<li>Read -- every browser reads the list of all quotes from the server and displays it </li>
+				<li>Update -- the number of likes of any quote can be modified by clicking on the "like" button</li>
+				<li>Delete -- any quote can be deleted by clicking on the delete button</li>
+			</ul>
+			These are the so-called CRUD operations that every database maintains and this demo gives an example
+			of how you can do that with a simple collection.
+		</p>
+		<p>
+			Here are some things you can try to do
+			<ol>
+				<li> Change the newquote.js file so that a new quote initially has 0 likes instead of 1 like</li>
+				<li> Take the number of likes out of a button and 
+					 instead create a thumbs up and thumbs down buttons 
+					 that will raise and lower the number of likes
+				</li>
+			</ol>
+		</p>
+	</div>
+</template>

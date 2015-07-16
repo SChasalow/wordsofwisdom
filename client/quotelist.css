@@ -1,0 +1,26 @@
+input.quote {
+	width:100%;
+
+}
+
+button.delete {
+	float:right;
+}
+
+button {
+	width:100%;
+}
+
+#quotelist td {
+	padding:10px 10px;
+}
+
+li.quote {
+	margin:15px;
+	padding:5px;
+}
+
+span.quote {
+	font-style: italic;
+	color:blue;
+}
