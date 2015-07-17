@@ -11,7 +11,7 @@
 		  // read the author and quote text from the browser window
 
 		  var newQuoteText = $("#newquotetext").val();
-      var newtaglist = ($("#newtags").val()).split(",");
+      var newtaglist = (($("#newtags").val()).toLowerCase()).split(",");
       var newTags = [];
       $.each(newtaglist, function(i, el){
     if($.inArray(el, newTags) === -1) newTags.push(el);
@@ -22,7 +22,7 @@
 		  // and erase the fields so the user can add another quote later
 		  $("#newquotetext").val("");
       $("#newtags").val("");
-		  Meteor.user().emails[0].address  		
+		  Meteor.user().emails[0].address
 
 
 		  // create a new quote object and upload it to the server!
