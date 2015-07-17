@@ -11,6 +11,7 @@
 		  // read the author and quote text from the browser window
 
 		  var newQuoteText = $("#newquotetext").val();
+
       var newtaglist = (($("#newtags").val()).toLowerCase()).split(",");
       var newTags = [];
       $.each(newtaglist, function(i, el){
@@ -29,6 +30,7 @@
 		  var quote =
 		  	{quote:newQuoteText,
           tags:newTags,
+          //category:newSub,
 		  		likes:1,
 		  		likers:[Meteor.userId()],
 		  		createdAt: new Date(),
