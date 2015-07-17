@@ -37,6 +37,10 @@
 		  		createdAt: new Date(),
 		  		createdBy: Meteor.user().emails[0].address,
 		  		user:Meteor.userId()};  // create the JSON object representing the quote
+		  		 if(newTags, newQuoteText == ""){
+                alert("Please Type a Message");
+                return false;
+         };
 		  Quotes.insert(quote);
 	  }
 

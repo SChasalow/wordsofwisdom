@@ -2,3 +2,25 @@
 	margin:0px 10px;
 	padding: 10px 50px;
 }
+
+/*
+select {
+    display: inline-block;
+    width:100px;
+    height:50px;
+}
+select option {
+    padding:20px;
+}*/
+select {
+   background: inherit;
+   width: 268px;
+   padding-left: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+    cursor: pointer;  
+}
