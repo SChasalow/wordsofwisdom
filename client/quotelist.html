@@ -8,8 +8,9 @@
 			{{/each}}
 			</tbody>
 		</table>
+		{{#if ranOut}}
 		<button id="showMore">Show More Messages</button>
-		<button id="showLess">Show Fewer Messages</button>
+		{{/if}}
 	</div>
 </template>
 
@@ -22,7 +23,7 @@
 		</td>
 		<td>
 			<span class="author">{{author}}</span><span class="quote">{{quote}}</span>
-		</td>	
+		</td>
 
 		<td> {{createdBy}} at {{createdAt}}</td>
 
