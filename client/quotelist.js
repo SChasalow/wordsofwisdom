@@ -17,12 +17,12 @@ Template.quotelist.events({
   'click button.like': function (event) {
     if(_.contains(this.likers,Meteor.userId())) 
       {var newLikers = _.without(this.likers,Meteor.userId());
-        alert("disliking this!!");
+        
       Quotes.update(this._id,{$inc:{likes: -1},$set:{likers:newLikers}});
     }
      else {
       this.likers.push(Meteor.userId()); // add your self to the likers
-      alert("liking this!");
+     
 	   Quotes.update(this._id,{$inc:{likes: 1},$set:{likers:this.likers}}); // update the current quote by adding 1 to its likes field
     }
   },
