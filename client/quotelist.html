@@ -18,13 +18,16 @@
 <template name="quoteLine">
 	<tr>
 		<td class="text-center">
-			<button class="btn btn-sm btn-success like">{{likes}} Likes</button>
+			<button class="btn btn-sm {{likeColor}} like">{{likes}} Likes</button>
 		</td>
+
+
 		<td>
-			<span class="author">{{author}}</span><span class="quote">{{quote}}</span>
+			<span class="author">{{createdBy}}</span>: <span class="quote">{{quote}}</span>
+
 		</td>	
 
-		<td> {{createdBy}} at {{createdAt}}</td>
+		<td> {{creationTime}}</td>
 
 		<!-- THIS IS NEW--> <td>{{likers}}</td>
 

@@ -14,12 +14,13 @@
 		  
 		  // and erase the fields so the user can add another quote later	
 		  $("#newquotetext").val(" ");	
-		  Meteor.user().emails[0].address				
+
 		  
 		  // create a new quote object and upload it to the server!
 		  var quote = 
 		  	{quote:newQuoteText,  
-		  		likes:0, 
+		  		likes:1, 
+		  		likers:[Meteor.userId()],
 		  		createdAt: new Date(),
 		  		createdBy: Meteor.user().emails[0].address,
 		  		user:Meteor.userId()};  // create the JSON object representing the quote
