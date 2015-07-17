@@ -1,8 +1,4 @@
-<head>
-  <title>Words of Wisdom</title>
-</head>
-
-<body>
+<template name = "welcome">
 	<div class = "containter">
 		{{> header}}
 		{{#if currentUser}}
@@ -11,7 +7,7 @@
 			<p>You need to log in to send messages</p>
 		{{/if}}
 
-		{{> loginButtons}}
+
 	
 		{{> quotelist}}
 
@@ -21,8 +17,8 @@
 
 		
 	</div>
+</template>
 
-</body>
 
 
 
