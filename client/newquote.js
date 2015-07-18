@@ -10,6 +10,8 @@
 	  'click button#saveQuote': function(event){
 		  // read the author and quote text from the browser window
 
+		  
+
 		  var newQuoteText = $("#newquotetext").val();
       var e = document.getElementById("categories")
       var newCat = e.options[e.selectedIndex].value;
