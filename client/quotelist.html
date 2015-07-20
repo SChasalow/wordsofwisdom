@@ -38,17 +38,15 @@
 
 		<td> {{creationTime}}</td>
 		{{#if isOwner}}
+		<td>
+			<button class="btn btn-small btn-link delete">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+		</td>
 		{{else}}
 		<td class="text-center">
 			<button class="btn btn-sm {{flagColor}} flag">
 				<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-			</button>
-		</td>
-		{{/if}}
-		{{#if isOwner}}
-		<td>
-			<button class="btn btn-small btn-link delete">
-				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 			</button>
 		</td>
 		{{/if}}
