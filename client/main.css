@@ -1,5 +1,8 @@
 /* CSS declarations go here */
-
+body{
+    background-image: url("../background.png");
+    z-index: 1000;
+}
 div#footer {
 	margin:80px 0px 20px 0px;
 }
@@ -27,3 +30,21 @@ div#newquote{
 
 
 }
+.container-headings{
+    width:100%;
+    display: inline-block;
+    position: relative;
+}
+#heading1, #heading2, #heading3, #heading4{
+	position: absolute;
+	left: 0px;
+    opacity:0 ;
+    font-size:2em;
+    margin-left:1em;
+    text-align: center;
+    margin-top:1em;
+    font-weight:bold;
+    font-family: Bree Serif;
+    width:90%;
+}
+

@@ -43,6 +43,22 @@ Template.quotelist.events({
       }
     },
 
+'click button.flags': function(event) 
+    {
+      if(_.contains(this.flaggers,Meteor.userId()))
+      {var newFlaggers = _.without(this.flaggers,Meteor.userId());
+
+      Quotes.update(this._id,{$inc:{flags: -1},$set:{flaggers:newFlaggers}});
+    }
+     else {
+      this.flaggers.push(Meteor.userId()); // add your self to the flaggers
+
+     Quotes.update(this._id,{$inc:{flags: 1},$set:{flaggers:this.flaggers}}); // update the current quote by adding 1 to its flaggers field
+    }
+
+},
+
+
   'click button.delete': function(event){
     Quotes.remove(this._id);
   },
@@ -79,12 +95,19 @@ Template.quoteLine.helpers({
   likeColor: function(){
     var likes = _.contains(this.likers,Meteor.userId());
     console.log(likes);
-    if(likes){return "btn-success";} else {return "btn-warning"}
+    if(likes){return "btn-success";} else {return "btn-warning";}
+  },
+
+  flagColor: function(){
+
+    var flags = _.contains(this.flaggers,Meteor.userId());
+    console.log(flags);
+    if(flags){return "btn-defualt";} else {return "btn-warning";}
   },
   saveColor: function(){
     var saves = _.contains(this.savers,Meteor.userId());
     console.log(saves);
-    if(saves){return "btn-info";} else {return "btn-primary"}
+    if(saves){return "btn-info";} else {return "btn-primary";}
   }
 
 });

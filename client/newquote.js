@@ -37,6 +37,7 @@
 		  		likes:1,
 		  		likers:[Meteor.userId()],
           savers:[],
+          flaggers: [Meteor.userId()],
 		  		createdAt: new Date(),
 		  		createdBy: Meteor.user().emails[0].address,
 		  		user:Meteor.userId()};  // create the JSON object representing the quote

@@ -19,10 +19,21 @@
 <template name="quoteLine">
 	<tr>
 		<td class="text-center">
-			<button class="btn btn-sm {{likeColor}} like">{{likes}} Likes</button>
+			<button class="btn btn-sm {{likeColor}} like">{{likes}} Likes
+				<span class="glyphicon glyphicon-star-empty"></span>
+			</button>
 		</td>
 		<td class="text-center">
-			<button class="btn btn-sm {{saveColor}} save">{{#if saved}}Saved{{else}}Save{{/if}}</button>
+			<button class="btn btn-sm {{saveColor}} save">{{#if saved}}Saved{{else}}Save{{/if}}
+				<span class="glyphicon glyphicon-floppy-save"></span>
+			</button>
+
+		</td>
+		<td class="text-center">
+			<button class="btn btn-sm {{flagColor}} flag">{{flags}} Flags
+				<span class="glyphicon glyphicon-flag"></span>
+			</button>
+
 		</td>
 
 
