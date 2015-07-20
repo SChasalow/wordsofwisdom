@@ -43,9 +43,9 @@ Template.quotelist.events({
 
 'click button.flag': function(event)
     {
-      if (confirm("Are you sure you want to flag this quote as inappropriate? It cannot be undone!")){
       if(_.contains(this.flaggers,Meteor.userId())){}
      else {
+      if (confirm("Are you sure you want to flag this quote as inappropriate? It cannot be undone!")){
       this.flaggers.push(Meteor.userId()); // add your self to the flaggers
      Quotes.update(this._id,{$inc:{flags: 1},$set:{flaggers:this.flaggers}}); // update the current quote by adding 1 to its flaggers field
      if((this.flags+1)>(Meteor.users.find().count()/10)){Quotes.remove(this._id);}
