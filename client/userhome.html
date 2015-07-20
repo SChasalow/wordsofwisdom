@@ -1,5 +1,15 @@
 <template name = "userhome">
-	<p>
-		This is profile!
-	</p>
+	<ul>
+		{{#each savedQuotes}}
+		{{> quoteData}}
+		{{/each}}
+	</ul>
+</template>
+
+
+<template name="quoteData">
+	<li>
+		{{quote}}
+	</li>
+
 </template>
