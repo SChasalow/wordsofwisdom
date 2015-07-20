@@ -37,19 +37,20 @@
 		</td>
 
 		<td> {{creationTime}}</td>
+		{{#if isOwner}}
+		{{else}}
 		<td class="text-center">
 			<button class="btn btn-sm {{flagColor}} flag">
 				<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
 			</button>
-
 		</td>
-
+		{{/if}}
+		{{#if isOwner}}
 		<td>
-			{{#if isOwner}}
 			<button class="btn btn-small btn-link delete">
 				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 			</button>
-			{{/if}}
 		</td>
+		{{/if}}
 	</tr>
 </template>

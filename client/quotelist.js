@@ -18,11 +18,9 @@ Template.quotelist.events({
     if(_.contains(this.likers,Meteor.userId()))
       {var newLikers = _.without(this.likers,Meteor.userId());
       Quotes.update(this._id,{$inc:{likes: -1},$set:{likers:newLikers}});
-      if(this.flags>this.likes){Quotes.remove(this._id);console.log("I'm supposed to be gone")}
     }
      else {
       this.likers.push(Meteor.userId()); // add your self to the likers
-
 	   Quotes.update(this._id,{$inc:{likes: 1},$set:{likers:this.likers}}); // update the current quote by adding 1 to its likes field
     }
   },
@@ -45,16 +43,12 @@ Template.quotelist.events({
 
 'click button.flag': function(event)
     {
-      if(_.contains(this.flaggers,Meteor.userId()))
-      {var newFlaggers = _.without(this.flaggers,Meteor.userId());
-      Quotes.update(this._id,{$inc:{flags: -1},$set:{flaggers:newFlaggers}});
-    }
+      if(_.contains(this.flaggers,Meteor.userId())){}
      else {
       this.flaggers.push(Meteor.userId()); // add your self to the flaggers
      Quotes.update(this._id,{$inc:{flags: 1},$set:{flaggers:this.flaggers}}); // update the current quote by adding 1 to its flaggers field
-     if(this.flags>this.likes){Quotes.remove(this._id);console.log("I'm supposed to be gone")}
+     if((this.flags+1)>5/*no of users*/){Quotes.remove(this._id);console.log("I'm supposed to be gone")}
     }
-
 },
 
 
@@ -79,7 +73,7 @@ Template.quotelist.helpers({
 Template.quoteLine.helpers({
 
   isOwner: function(){
-    return (this.user == Meteor.userId()) || (Meteor.userId()=="79ECyD4M2ek4Ffwtj");
+    return (this.user == Meteor.userId());
   },
   saved: function(){
     return (_.contains(this.savers,Meteor.userId()));
