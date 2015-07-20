@@ -24,9 +24,6 @@
 
 
 		  // and erase the fields so the user can add another quote later
-		  $("#newquotetext").val("");
-      $("#newtags").val("");
-		  Meteor.user().emails[0].address
 
 
 		  // create a new quote object and upload it to the server!
@@ -51,6 +48,9 @@
               return false;
        };
 		  Quotes.insert(quote);
+      $("#newquotetext").val("");
+      $("#newtags").val("");
+		  Meteor.user().emails[0].address
 	  }
 
   })
