@@ -46,6 +46,10 @@
                 alert("Please Type a Message");
                 return false;
          };
+         /*if(newQuoteText.length() > 900){
+              alert("Message cannot exceed 900 characters");
+              return false;
+       };*/
 		  Quotes.insert(quote);
 	  }
 
