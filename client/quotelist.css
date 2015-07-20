@@ -24,3 +24,6 @@ span.quote {
 	font-style: italic;
 	color:blue;
 }
+.glyphicon.glyphicon-flag {
+    font-size: 20px;
+}

@@ -29,13 +29,6 @@
 			</button>
 
 		</td>
-		<td class="text-center">
-			<button class="btn btn-sm {{flagColor}} flag">{{flags}} Flags
-				<span class="glyphicon glyphicon-flag"></span>
-			</button>
-
-		</td>
-
 
 		<td>
 
@@ -44,6 +37,12 @@
 		</td>
 
 		<td> {{creationTime}}</td>
+		<td class="text-center">
+			<button class="btn btn-sm {{flagColor}} flag">
+				<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+			</button>
+
+		</td>
 
 		<td>
 			{{#if isOwner}}

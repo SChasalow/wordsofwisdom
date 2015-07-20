@@ -17,8 +17,8 @@ Template.quotelist.events({
   'click button.like': function (event) {
     if(_.contains(this.likers,Meteor.userId()))
       {var newLikers = _.without(this.likers,Meteor.userId());
-
       Quotes.update(this._id,{$inc:{likes: -1},$set:{likers:newLikers}});
+      if(this.flags>this.likes){Quotes.remove(this._id);console.log("I'm supposed to be gone")}
     }
      else {
       this.likers.push(Meteor.userId()); // add your self to the likers
@@ -43,17 +43,16 @@ Template.quotelist.events({
       }
     },
 
-'click button.flags': function(event) 
+'click button.flag': function(event)
     {
       if(_.contains(this.flaggers,Meteor.userId()))
       {var newFlaggers = _.without(this.flaggers,Meteor.userId());
-
       Quotes.update(this._id,{$inc:{flags: -1},$set:{flaggers:newFlaggers}});
     }
      else {
       this.flaggers.push(Meteor.userId()); // add your self to the flaggers
-
      Quotes.update(this._id,{$inc:{flags: 1},$set:{flaggers:this.flaggers}}); // update the current quote by adding 1 to its flaggers field
+     if(this.flags>this.likes){Quotes.remove(this._id);console.log("I'm supposed to be gone")}
     }
 
 },
@@ -85,6 +84,9 @@ Template.quoteLine.helpers({
   saved: function(){
     return (_.contains(this.savers,Meteor.userId()));
   },
+  flagged: function(){
+    return (_.contains(this.flaggers,Meteor.userId()));
+  },
 
   creationTime: function(){
     var d = this.createdAt;
@@ -102,7 +104,7 @@ Template.quoteLine.helpers({
 
     var flags = _.contains(this.flaggers,Meteor.userId());
     console.log(flags);
-    if(flags){return "btn-defualt";} else {return "btn-warning";}
+    if(flags){return "btn-danger";} else {return "btn-default";}
   },
   saveColor: function(){
     var saves = _.contains(this.savers,Meteor.userId());

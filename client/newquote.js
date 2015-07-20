@@ -10,7 +10,7 @@
 	  'click button#saveQuote': function(event){
 		  // read the author and quote text from the browser window
 
-		  
+
 
 		  var newQuoteText = $("#newquotetext").val();
       var e = document.getElementById("categories")
@@ -35,9 +35,10 @@
           tags:newTags,
           category:newCat,
 		  		likes:1,
+          flags:0,
 		  		likers:[Meteor.userId()],
           savers:[],
-          flaggers: [Meteor.userId()],
+          flaggers: [],
 		  		createdAt: new Date(),
 		  		createdBy: Meteor.user().emails[0].address,
 		  		user:Meteor.userId()};  // create the JSON object representing the quote
