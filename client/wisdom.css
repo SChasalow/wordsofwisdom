@@ -1,0 +1,12 @@
+.wisdom-title{
+    text-align:center;
+    line-height:auto;
+    border-radius:60px;
+    position: relative;
+    bottom:4em;
+}
+.popular-wisdom{
+    font-family: sans-serif;
+    font-size: 3em;
+    font-weight:bold;
+}

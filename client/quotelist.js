@@ -92,7 +92,7 @@ Template.quoteLine.helpers({
   creationTime: function(){
     var d = this.createdAt;
     var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Nov.", "Dec."];
-    return months[d.getMonth()] + d.getDate()+ ", " + (d.getYear()+1900)
+    return months[d.getMonth()] + " " + d.getDate()+ ", " + (d.getYear()+1900)
   },
 
   likeColor: function(){
