@@ -29,24 +29,16 @@ Template.quotelist.events({
     }
   },
 
-    'click button.save': function (event) {
-      if(_.contains(this.savers,Meteor.userId()))
-        {var newSavers = _.without(this.savers,Meteor.userId());
-        var newSavedQuotes = _.without(Meteor.user().profile.SavedQuotes,this._id);
-        Meteor.users.update(Meteor.userId(),{$set:{"profile.SavedQuotes":newSavedQuotes}})
-        Quotes.update(this._id,{$set:{savers:newSavers}});
-      }
-       else {
-         if(typeof(Meteor.user().profile.SavedQuotes)=="undefined"){
-           Meteor.users.update(Meteor.userId(),{$set:{"profile.SavedQuotes":[]}})
-         }
-        this.savers.push(Meteor.userId()); // add your self to the savers
-        var a=Meteor.user().profile.SavedQuotes;
-        a[a.length]=this._id;
-        Meteor.users.update(Meteor.userId(),{$set:{"profile.SavedQuotes":a}})
-  	    Quotes.update(this._id,{$set:{savers:this.savers}}); // update the current quote by adding 1 to its likes field
-      }
-    },
+  'click button.save': function (event) {
+    if(_.contains(this.savers,Meteor.userId()))
+      {var newSavers = _.without(this.savers,Meteor.userId());
+      Quotes.update(this._id,{$set:{savers:newSavers}});
+    }
+     else {
+      this.savers.push(Meteor.userId()); // add your self to the savers
+      Quotes.update(this._id,{$set:{savers:this.savers}}); // update the current quote by adding 1 to its likes field
+    }
+  },
 
 'click button.flag': function(event)
     {
