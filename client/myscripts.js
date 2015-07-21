@@ -4,7 +4,7 @@ function showHeading(){
     setTimeout(hideHeading, 5000);//hide it in 5 seconds
 }
 function hideHeading(){
-    $('#heading'+(heading_cur+1)).css({opacity: 1}).animate({opacity: 0,left: "-50px"}, 1000
+    $('#heading'+(heading_cur+1)).css({opacity: 1}).animate({opacity: 0,left: "125px"}, 1000
         ,function(){
             showHeading();//show the next when this has completed
         });
