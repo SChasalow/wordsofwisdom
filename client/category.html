@@ -1,0 +1,16 @@
+<template name= "category">
+
+<div id ="header" class="jumbotron wisdom-title">
+			<h1>{{category}} of The Day</h1>
+</div>
+<div class="popular-wisdom">
+   <h2>The Most Popular {{category}}  Are :</h2> 
+
+ 
+</div>
+
+{{#each quotes}}
+  {{> quoteData}}
+{{/each}}
+
+</template>
