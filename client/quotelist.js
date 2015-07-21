@@ -33,6 +33,9 @@ Template.quotelist.events({
         Quotes.update(this._id,{$set:{savers:newSavers}});
       }
        else {
+         if(typeof(Meteor.user().profile.SavedQuotes)=="undefined"){
+           Meteor.users.update(Meteor.userId(),{$set:{"profile.SavedQuotes":[]}})
+         }
         this.savers.push(Meteor.userId()); // add your self to the savers
         var a=Meteor.user().profile.SavedQuotes;
         a[a.length]=this._id;
