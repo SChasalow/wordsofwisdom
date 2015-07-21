@@ -1,0 +1,27 @@
+<template name="search">
+<div class="container">
+    <div class="row">    
+		    <div class="input-group">
+              <div class="col-xs-8">
+                <input type="hidden" name="search_param" value="all">         
+                <input type="text" class="form-control" name="x" placeholder="Search term..." id="searchWorking">
+              </div>
+              <div class = "col-xs-1">
+                <span class="input-group-btn">
+                    <a href="{{pathFor route='search'}}"><button class="btn btn-default" type="button" id="searchButton"><span class="glyphicon glyphicon-search"></span></button></a>
+                </span>
+                </div>
+                <div id = "validation"></div>
+                <div id = "searchResult">
+                <table class="table table-striped" id="quotelist">
+                  <tbody>
+                    {{#each quotes}}
+                    {{> quoteLine}}
+                    {{/each}}
+                  </tbody>
+                </table>
+          </div>
+        </div>
+	</div>
+</div>
+</template>
