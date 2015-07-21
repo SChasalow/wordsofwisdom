@@ -20,6 +20,9 @@
       $.each(newtaglist, function(i, el){
     if($.inArray(el, newTags) === -1) newTags.push(el);
 });
+if(_.contains(newTags,"untagged")){newTags=_.without(newTags,"untagged")}
+if(newTags.length==0||newTags[0]==""){newTags=["untagged"]}
+
 
 
 

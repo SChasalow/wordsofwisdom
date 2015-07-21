@@ -1,9 +1,9 @@
 <template name="search">
 <div class="container">
-    <div class="row">    
+    <div class="row">
 		    <div class="input-group">
               <div class="col-xs-8">
-                <input type="hidden" name="search_param" value="all">         
+                <input type="hidden" name="search_param" value="all">
                 <input type="text" class="form-control" name="x" placeholder="Search term..." id="searchWorking">
               </div>
               <div class = "col-xs-1">
@@ -12,6 +12,18 @@
                 </span>
                 </div>
                 <div id = "validation"></div>
+                <br>
+                <br>
+                Category: &nbsp;
+                <div id="categoryFilter">
+                  <select id="categories">
+                    <option value="all">All</option>
+                      <option value="wisdom">Wisdom</option>
+                      <option value="jokes">Jokes</option>
+                      <option value="phrases">Phrases</option>
+                      <option value="misc.">Misc.</option>
+                  </select>
+                </div>
                 <div id = "searchResult">
                 <table class="table table-striped" id="quotelist">
                   <tbody>

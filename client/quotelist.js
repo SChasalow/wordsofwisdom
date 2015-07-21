@@ -9,6 +9,10 @@ Template.quotelist.helpers({
   },
   showNum: function(){
     return Session.get("showNum");
+  },
+  ranOut: function(){
+    return (Quotes.find({}).count()>Session.get("showNum"))
+
   }
 });
 
@@ -71,12 +75,7 @@ Template.quotelist.events({
 
 
 });
-Template.quotelist.helpers({
-  ranOut: function(){
-    return (Quotes.find({}).count()>Session.get("showNum"))
 
-  }
-});
 Template.quoteLine.helpers({
 
   isOwner: function(){
