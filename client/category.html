@@ -8,9 +8,13 @@
 
  
 </div>
-
-{{#each quotes}}
-  {{> quoteData}}
-{{/each}}
+<table class="table table-striped" id="quotelist">
+                  <tbody>
+                    {{#each quotes}}
+                    {{> quoteLine}}
+                    {{/each}}
+                  </tbody>
+                </table>
 
 </template>
+

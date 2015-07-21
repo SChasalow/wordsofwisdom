@@ -1,9 +1,11 @@
-<template name = "userhome">
-	<ul>
+<template name = "userhome" class="table table-striped" id="quotelist">
+	<table class = "table table-striped">
+	<tbody>
 		{{#each savedQuotes}}
-		{{> quoteData}}
+		{{> quoteLine}}
 		{{/each}}
-	</ul>
+	</tbody>
+	</table>
 </template>
 
 
@@ -11,11 +13,13 @@
 
 <div class = "container">
 	<table class="table table-bordered">
-	<tr>
-		<tb>
-		"{{quote}}"
-	</tb>
-	</tr>
-</table>
+	
+                  <tbody>
+                    {{#each quotes}}
+                    {{> quoteLine}}
+                    {{/each}}
+					"{{quote}}"
+				</tbody>
+	</table>
 </div>
 </template>
