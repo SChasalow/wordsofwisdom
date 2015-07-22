@@ -1,6 +1,6 @@
 Template.userhome.helpers({
 	savedQuotes: function(){
-		return Quotes.find({savers:Meteor.userId()}).fetch();
+		return Quotes.find({savers:Meteor.userId()});
 	},
 	score: function(){
 		var theFourCategories=[Quotes.find({savers:Meteor.userId(),category:"wisdom"}).count(),Quotes.find({savers:Meteor.userId(),category:"jokes"}).count(),Quotes.find({savers:Meteor.userId(),category:"phrases"}).count(),Quotes.find({savers:Meteor.userId(),category:"misc."}).count()];
