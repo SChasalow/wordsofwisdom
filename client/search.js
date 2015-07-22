@@ -2,9 +2,14 @@ Template.search.helpers({
    quotes: function () {
    	var sessionKey = Session.get("keyword");
     var sessionCategoryKey=Session.get("categoryKeyword");
-if(sessionCategoryKey=="all"){return Quotes.find({tags:sessionKey}).fetch();}
-   else if(sessionKey==""&&sessionCategoryKey!="all"){return Quotes.find({category:sessionCategoryKey}).fetch();}
-   else{return Quotes.find({tags:sessionKey,category:sessionCategoryKey}).fetch();}
+    var now = new Date().getTime();
+    var yesterday = new Date(now - 1000*10);  // *60*24
+if(sessionCategoryKey=="all"){
+       return Quotes.find({tags:sessionKey,createdAt:{$gt:yesterday}}).fetch();}
+   else if(sessionKey==""&&sessionCategoryKey!="all"){
+      return Quotes.find({category:sessionCategoryKey,createdAt:{$gt:yesterday}}).fetch();}
+   else{
+       return Quotes.find({tags:sessionKey,category:sessionCategoryKey,createdAt:{$gt:yesterday}}).fetch();}
   }
 });
 

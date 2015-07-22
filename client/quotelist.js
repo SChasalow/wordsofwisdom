@@ -2,7 +2,9 @@ Session.set("showNum",5);
 
 Template.quotelist.helpers({
   quotes: function () {
-	  return Quotes.find({},
+    var now = new Date().getTime();
+    var yesterday = new Date(now - 1000*10);  // *60*24
+	  return Quotes.find({createdAt:{$gt:yesterday}},
                        {limit:Session.get("showNum"),
                         sort:{createdAt:-1}}
                       ); // we are finding all of the quotes on the server to show on the client
