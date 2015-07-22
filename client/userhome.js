@@ -9,10 +9,10 @@ Template.userhome.helpers({
 		for (var i = 0; i < theFourCategories.length; i++) {
 			theFourCategories[i]=theFourCategories[i]-theScore;
 		}
-		if(theFourCategories[0]==0){whichCategory="wisdom"}
-		else if(theFourCategories[1]==0){whichCategory="jokes"}
-		else if(theFourCategories[2]==0){whichCategory="phrases"}
-		else{whichCategory="misc."}
+		if(theFourCategories[0]==0){whichCategory="Wise"}
+		else if(theFourCategories[1]==0){whichCategory="Jokester"}
+		else if(theFourCategories[2]==0){whichCategory="Poet"}
+		else{whichCategory="Randy Crandy"}
 
 		return whichCategory;
 	}
