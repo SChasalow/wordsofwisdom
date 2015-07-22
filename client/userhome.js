@@ -2,6 +2,9 @@ Template.userhome.helpers({
 	savedQuotes: function(){
 		return Quotes.find({savers:Meteor.userId()},{sort:{createdAt:-1}});
 	},
+	createdQuotes: function(){
+		return Quotes.find({savers:Meteor.userId()},{sort:{createdAt:-1}});
+	},
 	score: function(){
 		var theFourCategories=[Quotes.find({savers:Meteor.userId(),category:"wisdom"}).count(),Quotes.find({savers:Meteor.userId(),category:"jokes"}).count(),Quotes.find({savers:Meteor.userId(),category:"phrases"}).count(),Quotes.find({savers:Meteor.userId(),category:"misc."}).count()];
 		var theScore=Math.max.apply(Math,theFourCategories);
@@ -21,6 +24,9 @@ Template.userhome.helpers({
 	},
 	hasSavedQuotes: function(){
 		return (Quotes.find({savers:Meteor.userId()}).count()>0);
+	},
+	hasCreatedQuotes: function(){
+		return (Quotes.find({createdBy:Meteor.user().emails[0].address}).count()>0);
 	}
 
 });

@@ -17,4 +17,16 @@
 	{{else}}
 <h2>There are no saved quotes to display</h2>
 {{/if}}
+{{#if hasCreatedQuotes}}
+<h2>Submitted Quotes:</h2>
+	<table class = "table table-striped">
+	<tbody>
+		{{#each createdQuotes}}
+		{{> quoteLine}}
+		{{/each}}
+	</tbody>
+	</table>
+	{{else}}
+<h2>There are no submitted quotes to display</h2>
+{{/if}}
 </template>
