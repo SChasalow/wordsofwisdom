@@ -22,7 +22,8 @@
 });
 if(_.contains(newTags,"untagged")){newTags=_.without(newTags,"untagged")}
 if(newTags.length==0||newTags[0]==""){newTags=["untagged"]}
-
+if(_.contains(newTags,"")){newTags=_.without(newTags,"")}
+if(_.contains(newTags," ")){newTags=_.without(newTags," ")}
 
 
 
