@@ -1,6 +1,6 @@
 Template.userhome.helpers({
 	savedQuotes: function(){
-		return Quotes.find({savers:Meteor.userId()});
+		return Quotes.find({savers:Meteor.userId()},{sort:{createdAt:-1}});
 	},
 	score: function(){
 		var theFourCategories=[Quotes.find({savers:Meteor.userId(),category:"wisdom"}).count(),Quotes.find({savers:Meteor.userId(),category:"jokes"}).count(),Quotes.find({savers:Meteor.userId(),category:"phrases"}).count(),Quotes.find({savers:Meteor.userId(),category:"misc."}).count()];
@@ -9,12 +9,18 @@ Template.userhome.helpers({
 		for (var i = 0; i < theFourCategories.length; i++) {
 			theFourCategories[i]=theFourCategories[i]-theScore;
 		}
-		if(theFourCategories[0]==0){whichCategory="Wise"}
-		else if(theFourCategories[1]==0){whichCategory="Jokester"}
-		else if(theFourCategories[2]==0){whichCategory="Poet"}
-		else{whichCategory="Randy Crandy"}
+		if(theFourCategories[0]==0){whichCategory="Wisdom"}
+		else if(theFourCategories[1]==0){whichCategory="Jokes"}
+		else if(theFourCategories[2]==0){whichCategory="Phrases"}
+		else{whichCategory="Misc."}
 
 		return whichCategory;
+	},
+	mostPopularQuote: function(){
+		return Quotes.find({createdBy:Meteor.user().emails[0].address},{sort:{likes:-1}}).fetch()[0].quote;
+	},
+	hasSavedQuotes: function(){
+		return (Quotes.find({savers:Meteor.userId()}).count()>0);
 	}
 
 });

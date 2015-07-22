@@ -18,6 +18,7 @@
 
 <template name="quoteLine">
 	<tr>
+		{{#if currentUser}}
 		<td class="text-center">
 			<button class="btn btn-sm {{likeColor}} like">{{likes}} Likes
 				<span class="glyphicon glyphicon-thumbs-up"></span>
@@ -29,11 +30,15 @@
 			</button>
 
 		</td>
-
+		{{/if}}
 		<td>
-
 			<span class="author">{{createdBy}}</span>: <span class="quote">{{quote}}</span>
-
+			<br>
+			<span class="author">category</span>: <span class="quote">{{categorize}}</span>
+			{{#if isTagged}}
+			<br>
+			<span class="author">tags</span>: <span class="quote">{{tagify}}</span>
+			{{/if}}
 		</td>
 
 		<td> {{creationTime}}</td>
@@ -44,11 +49,13 @@
 			</button>
 		</td>
 		{{else}}
+		{{#if currentUser}}
 		<td class="text-center">
 			<button class="btn btn-sm {{flagColor}} flag">
 				<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
 			</button>
 		</td>
+		{{/if}}
 		{{/if}}
 	</tr>
 </template>

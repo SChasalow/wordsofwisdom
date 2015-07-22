@@ -3,7 +3,7 @@ Session.set("showNum",5);
 Template.quotelist.helpers({
   quotes: function () {
     now = new Date().getTime();
-    yesterday = new Date(now - 86400000); 
+    yesterday = new Date(now - 86400000);
 	  return Quotes.find({createdAt:{$gt:yesterday}},
                        {limit:Session.get("showNum"),
                         sort:{createdAt:-1}}
@@ -80,6 +80,19 @@ Template.quoteLine.helpers({
   },
   flagged: function(){
     return (_.contains(this.flaggers,Meteor.userId()));
+  },
+  categorize: function(){
+    return this.category;
+  },
+  isTagged: function(){
+    return ((this.tags[0]=="untagged")==false);
+  },
+  tagify: function(){
+    var listOfTags="";
+    for (var i = 0; i < this.tags.length; i++) {
+      listOfTags=listOfTags+this.tags[i]+((i==this.tags.length-1)?"":",")
+    }
+    return listOfTags;
   },
 
   creationTime: function(){

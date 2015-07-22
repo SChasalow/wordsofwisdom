@@ -1,5 +1,12 @@
 <template name = "userhome" class="table table-striped" id="quotelist">
-	{{score}}
+	<table class="table table-bordered">
+		<tbody>
+	<tr class="active"><td><b>Most Popular Quote</b></td><td>"{{mostPopularQuote}}"</td></tr>
+	<tr class="active"><td><b>Most Saved Category</b></td><td>{{score}}</td></tr>
+</tbody>
+</table>
+{{#if hasSavedQuotes}}
+<h2>Saved Quotes:</h2>
 	<table class = "table table-striped">
 	<tbody>
 		{{#each savedQuotes}}
@@ -7,22 +14,7 @@
 		{{/each}}
 	</tbody>
 	</table>
-</template>
-
-
-<template name="quoteData">
-
-<div class = "container">
-	<table class="table table-bordered">
-
-                  <tbody>
-                    {{#each quotes}}
-                    {{> quoteLine}}
-                    {{/each}}
-					"{{quote}}"
-				</tbody>
-	</table>
-</div>
-
-
+	{{else}}
+<h2>There are no saved quotes to display</h2>
+{{/if}}
 </template>
