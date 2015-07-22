@@ -3,7 +3,7 @@ Template.userhome.helpers({
 		return Quotes.find({savers:Meteor.userId()},{sort:{createdAt:-1}});
 	},
 	createdQuotes: function(){
-		return Quotes.find({savers:Meteor.userId()},{sort:{createdAt:-1}});
+		return Quotes.find({createdBy:Meteor.user().emails[0].address},{sort:{createdAt:-1}});
 	},
 	score: function(){
 		var theFourCategories=[Quotes.find({savers:Meteor.userId(),category:"wisdom"}).count(),Quotes.find({savers:Meteor.userId(),category:"jokes"}).count(),Quotes.find({savers:Meteor.userId(),category:"phrases"}).count(),Quotes.find({savers:Meteor.userId(),category:"misc."}).count()];
