@@ -5,11 +5,11 @@ Template.search.helpers({
     var now = new Date().getTime();
     var yesterday = new Date(now - 86400000);
 if(sessionCategoryKey=="all"){
-       return Quotes.find({tags:sessionKey,createdAt:{$gt:yesterday}}).fetch();}
+       return Quotes.find({tags:sessionKey,createdAt:{$gt:yesterday}});}
    else if(sessionKey==""&&sessionCategoryKey!="all"){
-      return Quotes.find({category:sessionCategoryKey,createdAt:{$gt:yesterday}}).fetch();}
+      return Quotes.find({category:sessionCategoryKey,createdAt:{$gt:yesterday}});}
    else{
-       return Quotes.find({tags:sessionKey,category:sessionCategoryKey,createdAt:{$gt:yesterday}}).fetch();}
+       return Quotes.find({tags:sessionKey,category:sessionCategoryKey,createdAt:{$gt:yesterday}});}
   }
 });
 

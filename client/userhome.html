@@ -1,4 +1,5 @@
 <template name = "userhome" class="table table-striped" id="quotelist">
+	{{score}}
 	<table class = "table table-striped">
 	<tbody>
 		{{#each savedQuotes}}
@@ -13,7 +14,7 @@
 
 <div class = "container">
 	<table class="table table-bordered">
-	
+
                   <tbody>
                     {{#each quotes}}
                     {{> quoteLine}}

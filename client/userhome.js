@@ -1,6 +1,20 @@
 Template.userhome.helpers({
 	savedQuotes: function(){
 		return Quotes.find({savers:Meteor.userId()}).fetch();
+	},
+	score: function(){
+		var theFourCategories=[Quotes.find({savers:Meteor.userId(),category:"wisdom"}).count(),Quotes.find({savers:Meteor.userId(),category:"jokes"}).count(),Quotes.find({savers:Meteor.userId(),category:"phrases"}).count(),Quotes.find({savers:Meteor.userId(),category:"misc."}).count()];
+		var theScore=Math.max.apply(Math,theFourCategories);
+		var whichCategory="";
+		for (var i = 0; i < theFourCategories.length; i++) {
+			theFourCategories[i]=theFourCategories[i]-theScore;
+		}
+		if(theFourCategories[0]==0){whichCategory="wisdom"}
+		else if(theFourCategories[1]==0){whichCategory="jokes"}
+		else if(theFourCategories[2]==0){whichCategory="phrases"}
+		else{whichCategory="misc."}
+
+		return whichCategory;
 	}
 
 });
