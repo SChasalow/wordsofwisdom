@@ -2,8 +2,8 @@ Session.set("showNum",5);
 
 Template.quotelist.helpers({
   quotes: function () {
-    var now = new Date().getTime();
-    var yesterday = new Date(now - 1000*10);  // *60*24
+    now = new Date().getTime();
+    yesterday = new Date(now - 86400000); 
 	  return Quotes.find({createdAt:{$gt:yesterday}},
                        {limit:Session.get("showNum"),
                         sort:{createdAt:-1}}
@@ -13,7 +13,7 @@ Template.quotelist.helpers({
     return Session.get("showNum");
   },
   ranOut: function(){
-    return (Quotes.find({}).count()>Session.get("showNum"))
+    return (Quotes.find({createdAt:{$gt:yesterday}}).count()>Session.get("showNum"))
 
   }
 });

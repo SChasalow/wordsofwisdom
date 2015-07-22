@@ -3,7 +3,7 @@ Template.search.helpers({
    	var sessionKey = Session.get("keyword");
     var sessionCategoryKey=Session.get("categoryKeyword");
     var now = new Date().getTime();
-    var yesterday = new Date(now - 1000*10);  // *60*24
+    var yesterday = new Date(now - 86400000);
 if(sessionCategoryKey=="all"){
        return Quotes.find({tags:sessionKey,createdAt:{$gt:yesterday}}).fetch();}
    else if(sessionKey==""&&sessionCategoryKey!="all"){
