@@ -2,15 +2,9 @@ Template.search.helpers({
    quotes: function () {
    	var sessionKey = Session.get("keyword");
     var sessionCategoryKey=Session.get("categoryKeyword");
-    var multiSessionKeyPrep=sessionKey.split(",");
-    var multiSessionKey=[];
-    $.each(multiSessionKeyPrep, function(i, el){
-  if($.inArray(el, multiSessionKey) === -1) multiSessionKey.push(el);
-});
-console.log(multiSessionKey);
-if(sessionCategoryKey=="all"){return Quotes.find({tags:multiSessionKey}).fetch();}
+if(sessionCategoryKey=="all"){return Quotes.find({tags:sessionKey}).fetch();}
    else if(sessionKey==""&&sessionCategoryKey!="all"){return Quotes.find({category:sessionCategoryKey}).fetch();}
-   else{return Quotes.find({tags:multiSessionKey,category:sessionCategoryKey}).fetch();}
+   else{return Quotes.find({tags:sessionKey,category:sessionCategoryKey}).fetch();}
   }
 });
 
@@ -20,7 +14,7 @@ Template.search.events({
  		 var keyword = $("#searchWorking").val().toLowerCase();
      var inprep = document.getElementById("categories")
      var inCategory = inprep.options[inprep.selectedIndex].value;
- 		if (keyword.length == 0 && inCategory=="all"){$("#validation").html("Please type a message or select a category");}
+ 		if (keyword.length == 0 && inCategory=="all"){$("#validation").html("Please enter a tag or select a category");}
     else{$("#validation").html("");}
     Session.set("keyword",keyword);
     Session.set("categoryKeyword",inCategory);
