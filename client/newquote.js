@@ -15,7 +15,7 @@
 		  var newQuoteText = $("#newquotetext").val();
       var e = document.getElementById("categories")
       var newCat = e.options[e.selectedIndex].value;
-      var newtaglist = (($("#newtags").val()).toLowerCase()).split(",");
+      var newtaglist = ((($("#newtags").val()).toLowerCase()).replace(/ /g, "")).split(",");
       var newTags = [];
       $.each(newtaglist, function(i, el){
     if($.inArray(el, newTags) === -1) newTags.push(el);
@@ -23,8 +23,6 @@
 if(_.contains(newTags,"untagged")){newTags=_.without(newTags,"untagged")}
 if(newTags.length==0||newTags[0]==""){newTags=["untagged"]}
 if(_.contains(newTags,"")){newTags=_.without(newTags,"")}
-if(_.contains(newTags," ")){newTags=_.without(newTags," ")}
-
 
 
 		  // and erase the fields so the user can add another quote later
